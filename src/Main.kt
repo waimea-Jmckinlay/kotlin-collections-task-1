@@ -26,6 +26,7 @@ fun main() {
     monkeys.add("Jimmy")
     monkeys.add("Amy")
 
+
     // Show the monkeys
     showMonkeys(monkeys)
     println(monkeyCounter(monkeys))
@@ -77,7 +78,7 @@ fun main() {
     println("Longest Name: ${longestMonkeyName(monkeys)}")
 
     // Check the list
-    check(monkeys.count() == 0)
+    check(monkeys.count() == 4)
     check(monkeyCounter(monkeys) == "There are 4 monkeys!")
 
     // Try to delete 10 monkeys
@@ -91,7 +92,7 @@ fun main() {
     println("Longest Name: ${longestMonkeyName(monkeys)}")
 
     // Check the list
-    check(monkeys.count() == 4)
+    check(monkeys.count() == 0)
     check(monkeyCounter(monkeys) == "There are no monkeys!")
 }
 
@@ -110,10 +111,11 @@ fun showMonkeys(monkeyList: List<String>) {
     println("-------------------")
 
     // Loop through the given list and show each monkey
-    for (monkey in monkeyList) {
-        println(monkey)
+    for((i, monkey) in monkeyList.withIndex ()) {
+        println("monkey ${i +1} :${monkey}")
     }
 }
+
 
 
 /**
@@ -122,7 +124,12 @@ fun showMonkeys(monkeyList: List<String>) {
  */
 fun getNewMonkey(monkeyList: MutableList<String>) {
     // Ask the user for a monkey name (no blanks)
+    while (true){
+        println("add a monkey name")
 
+        var userinput = readLine().toString()
+
+    }
     // Add the name to the list
 
     // Show some feedback
@@ -139,14 +146,14 @@ fun getNewMonkey(monkeyList: MutableList<String>) {
  */
 fun monkeyCounter(monkeyList: List<String>): String {
     // return the number of monkeys in the list
-    var monkeyNumber = 0
-    for(( monkeys) in monkeyList.withIndex()) {
-        monkeyNumber == readln(Null)
-        
-    }
 
-    return TODO("Provide the return value")
-}
+    if (monkeyList.size == 0) {
+        return "There are no monkeys!"
+    }
+    return "There are ${monkeyList.size} monkeys!"
+
+   }
+
 
 
 /**
@@ -154,7 +161,14 @@ fun monkeyCounter(monkeyList: List<String>): String {
  */
 fun longestMonkeyName(monkeyList: List<String>): String {
     // Loop through the list and find the longest name
-    return "MONKEY NAME HERE"   // FIXME!
+   var longestname = ""
+
+    for (monkeyName in monkeyList) {
+        if (monkeyName.length > longestname.length  )
+            longestname = monkeyName
+
+    }
+    return longestname
 }
 
 
