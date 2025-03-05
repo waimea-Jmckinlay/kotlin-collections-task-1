@@ -124,16 +124,19 @@ fun showMonkeys(monkeyList: List<String>) {
  */
 fun getNewMonkey(monkeyList: MutableList<String>) {
     // Ask the user for a monkey name (no blanks)
+    var monkeyName = ""
     while (true){
-        println("add a monkey name")
-
-        var userinput = readLine().toString()
-
+        print("Monkey: ")
+        monkeyName = readln()
+        if (monkeyName.isNotEmpty() ) break
     }
     // Add the name to the list
+    println("Added new monkey: $monkeyName")
+    monkeyList.add(monkeyName)
+
 
     // Show some feedback
-    println("Added new monkey: NAME HERE")
+
 }
 
 
@@ -177,10 +180,13 @@ fun longestMonkeyName(monkeyList: List<String>): String {
  * if the list is not empty
  */
 fun deleteFirstMonkey(monkeyList: MutableList<String>) {
-    // Remove the first one from the list
+    // Check for empty list
+    if (monkeyList.isEmpty()) return
 
+    // Remove the first one from the list
+    monkeyList.removeAt(0)
     // Show some feedback
-    println("Removing monkey: NAME HERE")
+    println("Removing monkey: 1")
 }
 
 
@@ -190,8 +196,8 @@ fun deleteFirstMonkey(monkeyList: MutableList<String>) {
  */
 fun deleteLastMonkey(monkeyList: MutableList<String>) {
     // Remove the last one from the list
-
+    monkeyList.removeAt(4)
     // Show some feedback
-    println("Removing monkey: NAME HERE")
+    println("Removing monkey: 5")
 }
 
